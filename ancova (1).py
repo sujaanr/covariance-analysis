@@ -28,41 +28,6 @@ df['Math_Gain'] = df['springmathscore'] - df['fallmathscore']
 df['GeneralKnowledge_Gain'] = df['springgeneralknowledgescore'] - df['fallgeneralknowledgescore']
 print (df['Reading_Gain'], df['Math_Gain'], df['GeneralKnowledge_Gain'] )
 
-# Summary Statistics
-# Function for summary statistics
-def get_summary_statistics(dataset, label='Dataset'):
-
-    mean = np.round(np.mean(dataset), 2)
-    median = np.round(np.median(dataset), 2)
-    min_value = np.round(dataset.min(), 2)
-    max_value = np.round(dataset.max(), 2)
-    quartile_1 = np.round(dataset.quantile(0.25), 2)
-    quartile_3 = np.round(dataset.quantile(0.75), 2)
-
-    # Interquartile range
-    iqr = np.round(quartile_3 - quartile_1, 2)
-
-    print(f'{label} Summary Statistics:')
-    print('Min: %s' % min_value)
-    print('Mean: %s' % mean)
-    print('Max: %s' % max_value)
-    print('25th percentile: %s' % quartile_1)
-    print('Median: %s' % median)
-    print('75th percentile: %s' % quartile_3)
-    print('Interquartile range (IQR): %s' % iqr)
-    print('\n\n')
-
-# Display summary statistics
-get_summary_statistics(df['fallreadingscore'], 'Fall Reading Score')
-get_summary_statistics(df['fallmathscore'], 'Fall Math Score')
-get_summary_statistics(df['fallgeneralknowledgescore'], 'Fall General Knowledge Score')
-get_summary_statistics(df['springreadingscore'], 'Spring Reading Score')
-get_summary_statistics(df['springmathscore'], 'Spring Math Score')
-get_summary_statistics(df['springgeneralknowledgescore'], 'Spring General Knowledge Score')
-get_summary_statistics(df['totalhouseholdincome'], 'Total Household Income')
-get_summary_statistics(df['incomeinthousands'], 'Income in Thousands')
-get_summary_statistics(df['incomegroup'], 'Income Group')
-
 # Commented out IPython magic to ensure Python compatibility.
 # %pip install dfply
 from dfply import *
